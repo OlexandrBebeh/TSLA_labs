@@ -1,0 +1,9 @@
+
+A B C*+
+A B C*-
+A B- C+ D+ G-
+A B+ C*
+A B+ G+ C*
+A B+ G+ C<
+A 34 C+ D==:=
+A 34 12 C*- D!=:=
