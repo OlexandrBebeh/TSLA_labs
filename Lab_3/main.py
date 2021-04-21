@@ -123,7 +123,6 @@ for nt in nonterm:
 
 for rules in dict_rules:
     for rule in dict_rules[rules]:
-        print(rule)
         if len(rule) == 0:
             continue
         if rule[0] in nonterm:

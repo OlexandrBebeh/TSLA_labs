@@ -1,0 +1,7 @@
+var 
+   abc: integer := 7;
+   test := 9;
+   yauwgd: integer;
+begin
+   yauwgd := test - abc;
+end

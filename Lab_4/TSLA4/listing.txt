@@ -1,0 +1,22 @@
+Token type: var | Row: 1 | Pos: 1 
+Token type: id | Token value: 0(abc) | Row: 2 | Pos: 4 
+Token type: colon | Row: 2 | Pos: 7 
+Token type: data_type | Row: 2 | Pos: 9 
+Token type: appropriation | Row: 2 | Pos: 17 
+Token type: number | Token value: 1(7) | Row: 2 | Pos: 20 
+Token type: semicolon | Row: 2 | Pos: 21 
+Token type: id | Token value: 2(test) | Row: 3 | Pos: 4 
+Token type: appropriation | Row: 3 | Pos: 9 
+Token type: number | Token value: 3(9) | Row: 3 | Pos: 12 
+Token type: semicolon | Row: 3 | Pos: 13 
+Token type: id | Token value: 4(yauwgd) | Row: 4 | Pos: 4 
+Token type: colon | Row: 4 | Pos: 10 
+Token type: data_type | Row: 4 | Pos: 12 
+Token type: semicolon | Row: 4 | Pos: 19 
+Token type: begin | Row: 5 | Pos: 1 
+Token type: id | Token value: 4(yauwgd) | Row: 6 | Pos: 4 
+Token type: appropriation | Row: 6 | Pos: 11 
+Token type: id | Token value: 2(test) | Row: 6 | Pos: 14 
+Token type: oper | Row: 6 | Pos: 19 
+Token type: semicolon | Row: 6 | Pos: 24 
+Token type: end | Row: 7 | Pos: 1 
