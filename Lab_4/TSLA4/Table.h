@@ -176,17 +176,18 @@ public:
 			tokens.push_back(Token(s, TokenType::id, tab.contains(s), row, index));
 			index += s.length();
 		} else if (std::regex_search(line, m, oper_reg)) {
-			std::string s = m.suffix().str();
+			std::string s = m.str();
 			tokens.push_back(Token(s, TokenType::oper, - 1, row, index));
 			index += s.length();
 		} else if (std::regex_search(line, m, relop_reg)) {
-			std::string s = m.suffix().str();
+			std::string s = m.str();
 			tokens.push_back(Token(s, TokenType::relop, -1, row, index));
 			index += s.length();
 		}
 		else {
 			if (line[0] != ' ' && line[0] != '\t' && line[0] != '\n') {
-				std::cout << "unknown token at line: " << row << " pos: " << index << std::endl;
+				std::cout << "unknown token at line: " << row << " pos: " << index+1 << std::endl;
+				exit(1);
 			}
 			index++;
 		}

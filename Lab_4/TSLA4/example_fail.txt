@@ -1,0 +1,10 @@
+var 
+   abc: integer := 7;
+   test := 9;
+   yauwgd: integer;
+begin
+   yauwgd := test - abc;
+   if(yauwgd > test) then
+	test := yauwgd
+   else test := 0
+end

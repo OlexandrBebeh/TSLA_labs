@@ -18,5 +18,20 @@ Token type: id | Token value: 4(yauwgd) | Row: 6 | Pos: 4
 Token type: appropriation | Row: 6 | Pos: 11 
 Token type: id | Token value: 2(test) | Row: 6 | Pos: 14 
 Token type: oper | Row: 6 | Pos: 19 
+Token type: id | Token value: 0(abc) | Row: 6 | Pos: 21 
 Token type: semicolon | Row: 6 | Pos: 24 
-Token type: end | Row: 7 | Pos: 1 
+Token type: if | Row: 7 | Pos: 4 
+Token type: open_breket | Row: 7 | Pos: 6 
+Token type: id | Token value: 4(yauwgd) | Row: 7 | Pos: 7 
+Token type: relop | Row: 7 | Pos: 14 
+Token type: id | Token value: 2(test) | Row: 7 | Pos: 16 
+Token type: close_breket | Row: 7 | Pos: 20 
+Token type: then | Row: 7 | Pos: 22 
+Token type: id | Token value: 2(test) | Row: 8 | Pos: 2 
+Token type: appropriation | Row: 8 | Pos: 7 
+Token type: id | Token value: 4(yauwgd) | Row: 8 | Pos: 10 
+Token type: else | Row: 9 | Pos: 4 
+Token type: id | Token value: 2(test) | Row: 9 | Pos: 9 
+Token type: appropriation | Row: 9 | Pos: 14 
+Token type: number | Token value: 5(0) | Row: 9 | Pos: 17 
+Token type: end | Row: 10 | Pos: 1 
