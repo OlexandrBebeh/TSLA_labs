@@ -23,8 +23,8 @@ enum class TokenType{
 	begin,
 	end,
 	data_type,
-	open_breket,
-	close_breket
+	open_bracket,
+	close_bracket
 };
 const char* printType(TokenType t) {
 	if (t == TokenType::id)
@@ -57,10 +57,10 @@ const char* printType(TokenType t) {
 		return "end";
 	if (t == TokenType::data_type)
 		return "data_type";
-	if (t == TokenType::open_breket)
-		return "open_breket";
-	if (t == TokenType::close_breket)
-		return "close_breket";
+	if (t == TokenType::open_bracket)
+		return "open_bracket";
+	if (t == TokenType::close_bracket)
+		return "close_bracket";
 
 }
 
@@ -103,7 +103,7 @@ class LexicAnalys {
 	VarTable tab;
 
 public:
-	void getToken(std::string line, int row, int& index) {
+	void getToken(std::string line, int row, int& index) { 
 		std::regex int_reg("^[0-9]+");
 		std::regex name_reg("^[a-zA-Z][a-zA-Z0-9]*");
 		std::regex oper_reg("^(\\+|-|\\*)");
@@ -111,12 +111,12 @@ public:
 		std::smatch m;
 
 		if (line[0] == ')') {
-			tokens.push_back(Token(")", TokenType::close_breket, -1, row, index));
+			tokens.push_back(Token(")", TokenType::close_bracket, -1, row, index));
 			index++;
 		}
 		else
 		if (line[0] == '(') {
-			tokens.push_back(Token("(", TokenType::open_breket, -1, row, index));
+			tokens.push_back(Token("(", TokenType::open_bracket, -1, row, index));
 			index++;
 		} else
 		if (line[0] == ',') {
@@ -237,7 +237,7 @@ public:
 		std::ofstream file("listing.txt");
 
 		for (int i = 0; i < tokens.size(); i++) {
-			std::cout << "Name: " + tokens[i].name + " | ";
+			file << "Name: " + tokens[i].name + " | ";
 			file << "Token type: ";
 			file << printType(tokens[i].type);
 			file << " | ";

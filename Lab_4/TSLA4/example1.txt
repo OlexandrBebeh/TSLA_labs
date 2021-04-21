@@ -1,7 +1,7 @@
 var 
-   abc: integer := 7;
-   test := 9;
+   a1bc: integer := 7;
+   te6st := 9;
    yauwgd: integer;
 begin
-   yauwgd := test - abc;
+   yauwgd := te6st - a1bc;
 end
