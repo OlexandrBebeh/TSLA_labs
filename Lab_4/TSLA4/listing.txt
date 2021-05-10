@@ -1,23 +1,12 @@
-Name: var | Token type: var | Row: 1 | Pos: 1 
-Name: a1bc | Token type: id | Token value: 0(a1bc) | Row: 2 | Pos: 4 
-Name: : | Token type: colon | Row: 2 | Pos: 8 
-Name: integer | Token type: data_type | Row: 2 | Pos: 10 
-Name: := | Token type: appropriation | Row: 2 | Pos: 18 
-Name: 7 | Token type: number | Token value: 1(7) | Row: 2 | Pos: 21 
-Name: ; | Token type: semicolon | Row: 2 | Pos: 22 
-Name: te6st | Token type: id | Token value: 2(te6st) | Row: 3 | Pos: 4 
-Name: := | Token type: appropriation | Row: 3 | Pos: 10 
-Name: 9 | Token type: number | Token value: 3(9) | Row: 3 | Pos: 13 
-Name: ; | Token type: semicolon | Row: 3 | Pos: 14 
-Name: yauwgd | Token type: id | Token value: 4(yauwgd) | Row: 4 | Pos: 4 
-Name: : | Token type: colon | Row: 4 | Pos: 10 
-Name: integer | Token type: data_type | Row: 4 | Pos: 12 
-Name: ; | Token type: semicolon | Row: 4 | Pos: 19 
-Name: begin | Token type: begin | Row: 5 | Pos: 1 
-Name: yauwgd | Token type: id | Token value: 4(yauwgd) | Row: 6 | Pos: 4 
-Name: := | Token type: appropriation | Row: 6 | Pos: 11 
-Name: te6st | Token type: id | Token value: 2(te6st) | Row: 6 | Pos: 14 
-Name: - | Token type: oper | Row: 6 | Pos: 20 
-Name: a1bc | Token type: id | Token value: 0(a1bc) | Row: 6 | Pos: 22 
-Name: ; | Token type: semicolon | Row: 6 | Pos: 26 
-Name: end | Token type: end | Row: 7 | Pos: 1 
+Name: 1 | Token type: number | Token value: 0(1) | Row: 1 | Pos: 1 
+Name: + | Token type: oper | Row: 1 | Pos: 3 
+Name: 3 | Token type: number | Token value: 1(3) | Row: 1 | Pos: 5 
+Name: * | Token type: oper | Row: 1 | Pos: 7 
+Name: 2 | Token type: number | Token value: 2(2) | Row: 1 | Pos: 9 
+Name: - | Token type: oper | Row: 1 | Pos: 11 
+Name: 6 | Token type: number | Token value: 3(6) | Row: 1 | Pos: 13 
+
+0 -> 1
+1 -> 3
+2 -> 2
+3 -> 6

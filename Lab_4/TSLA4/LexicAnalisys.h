@@ -73,6 +73,7 @@ public:
 	Token(std::string name, TokenType type, int value, int row, int symb) :
 		name(name), type(type), value_ref(value), row(row), symb(symb) {};
 
+	Token() {};
 };
 
 class VarTable {
@@ -147,10 +148,6 @@ public:
 			tokens.push_back(Token("end", TokenType::end, -1, row, index));
 			index += 3;
 		}
-		else if (line.substr(0, 3) == "end") {
-			tokens.push_back(Token("end", TokenType::end, -1, row, index));
-			index += 3;
-		}
 		else if (line.substr(0, 2) == "if") {
 			tokens.push_back(Token("if", TokenType::if_t, -1, row, index));
 			index += 2;
@@ -186,7 +183,7 @@ public:
 		}
 		else {
 			if (line[0] != ' ' && line[0] != '\t' && line[0] != '\n') {
-				std::cout << "unknown token at line: " << row << " pos: " << index+1 << std::endl;
+				std::cout << "Unknown token at line: " << row << " pos: " << index+1 << " Symbol:" << line[0] <<  std::endl;
 				exit(1);
 			}
 			index++;
@@ -246,6 +243,10 @@ public:
 			}
 			file << "Row: " << tokens[i].row << " | ";
 			file << "Pos: " << tokens[i].symb + 1 << " " << std::endl;
+		}
+		file << std::endl;
+		for (int i = 0; i < tab.refs.size(); i++) {
+			file << i << " -> " + tab.refs[i] << std::endl;
 		}
 		file.close();
 	}

@@ -20,7 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Table.h">
+    <ClInclude Include="SyntaxAnalisys.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LexicAnalisys.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

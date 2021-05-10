@@ -1,7 +1,7 @@
 var 
    a1bc: integer := 7;
    te6st := 9;
-   yauwgd: integer;
+   yauwgd : integer;
 begin
    yauwgd := te6st - a1bc;
 end

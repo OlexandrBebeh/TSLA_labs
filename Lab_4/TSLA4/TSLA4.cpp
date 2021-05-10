@@ -1,14 +1,16 @@
 ﻿
 #include <iostream>
 
-#include "Table.h"
+#include "SyntaxAnalisys.h"
 
 int main()
 {
     LexicAnalys a;
     std::string str;
-    std::cin >> str;
-    a.analysis(str);
+    //std::cin >> str;
+    a.analysis("test.txt");
+
+    SyntaxisAnalisys sync;
 
 } 
 

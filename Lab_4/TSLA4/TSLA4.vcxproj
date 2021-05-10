@@ -142,7 +142,8 @@
     <ClCompile Include="TSLA4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="SyntaxAnalisys.h" />
+    <ClInclude Include="LexicAnalisys.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
