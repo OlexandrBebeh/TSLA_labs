@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <functional>
+#include <algorithm>
 #include "LexicAnalisys.h"
 
 enum class NodeT {
@@ -65,6 +66,7 @@ class SyntaxisAnalisys {
 	std::map<std::vector<std::string>, NodeT> rules;
 	std::map<std::vector<std::string>, std::function<Node(std::vector<Node>)>> reduction_f;
 	std::vector<std::string> nonterm;
+	int maxRuleSize = 7;
 public:
 	SyntaxisAnalisys() {
 		nonterm.push_back("Program");
@@ -184,6 +186,29 @@ public:
 		if(search == rules.end()) return false;
 		return true;
 	}
+	bool deep_reduce(std::vector<Node>& stack) {
+		for (int i = maxRuleSize; i > 0; i--) {
+			for (int j = 0; j < stack.size() - 1 - i; j++) {
+				int maxReductSize = -1;
+				auto itbegin = stack.end() - i - j;
+				auto itend = stack.end() - j;
+				std::vector<Node> temp(itbegin, itend);
+				if (containRule(getNames(temp))) {
+					std::vector<Node> childs;
+					std::vector<std::string> temp;
+					for (int k = i; k > 0; k--) {
+						childs.insert(childs.begin(), stack[stack.size() - i - j + k -1 ]);
+						temp.insert(temp.begin(), stack[stack.size() - i - j + k - 1].name);
+					}
+					stack.erase(itbegin, itend);
+					stack.insert(stack.end() - j,reduction_f[temp](childs));
+					return true;
+				}
+			}
+
+		}
+		return false;
+	}
 	void reduct(std::vector<Node>& stack,int size) {
 		std::vector<Node> childs;
 		std::vector<std::string> temp;
@@ -199,7 +224,7 @@ public:
 		exit(1);
 	}
 	bool addToStack(std::vector<Node>& stack, Node node) {
-		int max = std::min(7, (int)stack.size());
+		int max = std::min(maxRuleSize, (int)stack.size());
 		std::vector<Node> temp1;
 		std::vector<Node> temp2{ node };
 		int maxReductSize = -1;
@@ -222,11 +247,14 @@ public:
 			reduct(stack, maxReductSize+1);
 			return true;
 		}
+		if (deep_reduce(stack)) {
+			return true;
+		}
 		throwExeption(node);
 		return true;
 	};
 	void final_reduct(std::vector<Node>& stack) {
-		int max = std::min(7, (int)stack.size());
+		int max = std::min(maxRuleSize, (int)stack.size());
 		std::vector<std::string> temp;
 		int maxReductSize = -1;
 		for (int i = (int)stack.size() - 1; i >= (int)stack.size() - max; i--) {
@@ -249,13 +277,37 @@ public:
 			final_reduct(stack);
 		}
 	}
+	void detour(std::ofstream& file, Node node) {
 
+		file << "Node name: " << node.name;
+		file << "; Node type: " << NodeTWork::getNodeT(node.type);
+		if (node.type == NodeT::L && node.childs.size() == 0) {
+			file << "; Token name: " << node.t.name;
+			file << "; Token type: " << printType(node.t.type) << "\n";
+		} else{
+			file << "; Childs: [";
+			for(int i = 0; i < node.childs.size();i++){
+				if (i == node.childs.size() - 1){
+					file << node.childs[i].name;
+					
+				}else {
+					file << node.childs[i].name << ", ";
+				}
+			}
+			file << "]\n";
+			for (Node child : node.childs) {
+				detour(file, child);
+			}
+		}
+	}
+	void writeTree(Node tree) {
+		std::ofstream file("tree.txt");
+		detour(file, tree);
+		file.close();
+	}
 	void startAnalisys() {
 		std::vector<Node> stack;
 		for (int i = 0; i < tokens.size();i++) {
-			if (i == 33) {
-				i = 33;
-			}
 			if (tokens[i].type == TokenType::id || tokens[i].type == TokenType::number) {
 				pushNode(stack, Node(printType(tokens[i].type), tokens[i], NodeT::L, std::vector<Node>()));
 			} else
@@ -267,5 +319,7 @@ public:
 			final_reduct(stack);
 			if (stack.size() == 1 && stack[0].type == NodeT::Program) break;
 		}
+
+		writeTree(stack[0]);
 	}
 };
