@@ -10,7 +10,9 @@ int main()
     //std::cin >> str;
     a.analysis("test.txt");
 
-    SyntaxisAnalisys sync;
+    SyntaxisAnalisys sync(a.getTokens());
+
+    sync.startAnalisys();
 
 } 
 

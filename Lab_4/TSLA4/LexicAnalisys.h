@@ -104,6 +104,9 @@ class LexicAnalys {
 	VarTable tab;
 
 public:
+	std::vector<Token> getTokens() {
+		return tokens;
+	};
 	void getToken(std::string line, int row, int& index) { 
 		std::regex int_reg("^[0-9]+");
 		std::regex name_reg("^[a-zA-Z][a-zA-Z0-9]*");

@@ -1,12 +1,58 @@
-Name: 1 | Token type: number | Token value: 0(1) | Row: 1 | Pos: 1 
-Name: + | Token type: oper | Row: 1 | Pos: 3 
-Name: 3 | Token type: number | Token value: 1(3) | Row: 1 | Pos: 5 
-Name: * | Token type: oper | Row: 1 | Pos: 7 
-Name: 2 | Token type: number | Token value: 2(2) | Row: 1 | Pos: 9 
-Name: - | Token type: oper | Row: 1 | Pos: 11 
-Name: 6 | Token type: number | Token value: 3(6) | Row: 1 | Pos: 13 
+Name: var | Token type: var | Row: 1 | Pos: 1 
+Name: b | Token type: id | Token value: 0(b) | Row: 2 | Pos: 2 
+Name: := | Token type: appropriation | Row: 2 | Pos: 4 
+Name: 1 | Token type: number | Token value: 1(1) | Row: 2 | Pos: 7 
+Name: + | Token type: oper | Row: 2 | Pos: 9 
+Name: 3 | Token type: number | Token value: 2(3) | Row: 2 | Pos: 11 
+Name: * | Token type: oper | Row: 2 | Pos: 13 
+Name: 2 | Token type: number | Token value: 3(2) | Row: 2 | Pos: 15 
+Name: - | Token type: oper | Row: 2 | Pos: 17 
+Name: 6 | Token type: number | Token value: 4(6) | Row: 2 | Pos: 19 
+Name: ; | Token type: semicolon | Row: 2 | Pos: 20 
+Name: begin | Token type: begin | Row: 3 | Pos: 1 
+Name: var | Token type: var | Row: 4 | Pos: 1 
+Name: a | Token type: id | Token value: 5(a) | Row: 4 | Pos: 5 
+Name: := | Token type: appropriation | Row: 4 | Pos: 7 
+Name: 1 | Token type: number | Token value: 1(1) | Row: 4 | Pos: 10 
+Name: + | Token type: oper | Row: 4 | Pos: 12 
+Name: 3 | Token type: number | Token value: 2(3) | Row: 4 | Pos: 14 
+Name: * | Token type: oper | Row: 4 | Pos: 16 
+Name: 2 | Token type: number | Token value: 3(2) | Row: 4 | Pos: 18 
+Name: - | Token type: oper | Row: 4 | Pos: 20 
+Name: 6 | Token type: number | Token value: 4(6) | Row: 4 | Pos: 22 
+Name: ; | Token type: semicolon | Row: 4 | Pos: 23 
+Name: if | Token type: if | Row: 5 | Pos: 1 
+Name: ( | Token type: open_bracket | Row: 5 | Pos: 4 
+Name: a | Token type: id | Token value: 5(a) | Row: 5 | Pos: 5 
+Name: < | Token type: relop | Row: 5 | Pos: 6 
+Name: b | Token type: id | Token value: 0(b) | Row: 5 | Pos: 7 
+Name: ) | Token type: close_bracket | Row: 5 | Pos: 8 
+Name: if | Token type: if | Row: 6 | Pos: 2 
+Name: ( | Token type: open_bracket | Row: 6 | Pos: 5 
+Name: a | Token type: id | Token value: 5(a) | Row: 6 | Pos: 6 
+Name: < | Token type: relop | Row: 6 | Pos: 7 
+Name: b | Token type: id | Token value: 0(b) | Row: 6 | Pos: 8 
+Name: ) | Token type: close_bracket | Row: 6 | Pos: 9 
+Name: a | Token type: id | Token value: 5(a) | Row: 7 | Pos: 2 
+Name: := | Token type: appropriation | Row: 7 | Pos: 4 
+Name: 7 | Token type: number | Token value: 6(7) | Row: 7 | Pos: 7 
+Name: ; | Token type: semicolon | Row: 7 | Pos: 8 
+Name: else | Token type: else | Row: 8 | Pos: 2 
+Name: b | Token type: id | Token value: 0(b) | Row: 9 | Pos: 3 
+Name: := | Token type: appropriation | Row: 9 | Pos: 5 
+Name: 7 | Token type: number | Token value: 6(7) | Row: 9 | Pos: 8 
+Name: ; | Token type: semicolon | Row: 9 | Pos: 9 
+Name: else | Token type: else | Row: 10 | Pos: 1 
+Name: b | Token type: id | Token value: 0(b) | Row: 11 | Pos: 2 
+Name: := | Token type: appropriation | Row: 11 | Pos: 4 
+Name: 7 | Token type: number | Token value: 6(7) | Row: 11 | Pos: 7 
+Name: ; | Token type: semicolon | Row: 11 | Pos: 8 
+Name: end | Token type: end | Row: 13 | Pos: 1 
 
-0 -> 1
-1 -> 3
-2 -> 2
-3 -> 6
+0 -> b
+1 -> 1
+2 -> 3
+3 -> 2
+4 -> 6
+5 -> a
+6 -> 7
