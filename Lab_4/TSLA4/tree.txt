@@ -1,119 +1,121 @@
-Node name: Program; Node type: Program; Childs: [Statement, begin, Statement, end]
-Node name: Statement; Node type: Statement; Childs: [var, id, :=, Expression, ;]
-Node name: var; Node type: L; Token name: var; Token type: var
-Node name: id; Node type: L; Token name: b; Token type: id
-Node name: :=; Node type: L; Token name: :=; Token type: appropriation
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [P, +, P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 1; Token type: number
-Node name: +; Node type: L; Token name: +; Token type: oper
-Node name: P; Node type: P; Childs: [P, -, P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [T, *, T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 3; Token type: number
-Node name: *; Node type: L; Token name: *; Token type: oper
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 2; Token type: number
-Node name: -; Node type: L; Token name: -; Token type: oper
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 6; Token type: number
-Node name: ;; Node type: L; Token name: ;; Token type: semicolon
-Node name: begin; Node type: L; Token name: begin; Token type: begin
-Node name: Statement; Node type: Statement; Childs: [Statement, Statement]
-Node name: Statement; Node type: Statement; Childs: [var, id, :=, Expression, ;]
-Node name: var; Node type: L; Token name: var; Token type: var
-Node name: id; Node type: L; Token name: a; Token type: id
-Node name: :=; Node type: L; Token name: :=; Token type: appropriation
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [P, +, P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 1; Token type: number
-Node name: +; Node type: L; Token name: +; Token type: oper
-Node name: P; Node type: P; Childs: [P, -, P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [T, *, T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 3; Token type: number
-Node name: *; Node type: L; Token name: *; Token type: oper
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 2; Token type: number
-Node name: -; Node type: L; Token name: -; Token type: oper
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 6; Token type: number
-Node name: ;; Node type: L; Token name: ;; Token type: semicolon
-Node name: Statement; Node type: Statement; Childs: [if, (, Expression, ), Statement, else, Statement]
-Node name: if; Node type: L; Token name: if; Token type: if
-Node name: (; Node type: L; Token name: (; Token type: open_bracket
-Node name: Expression; Node type: Expression; Childs: [Expression, <, Expression]
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [id]
-Node name: id; Node type: L; Token name: a; Token type: id
-Node name: <; Node type: L; Token name: <; Token type: relop
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [id]
-Node name: id; Node type: L; Token name: b; Token type: id
-Node name: ); Node type: L; Token name: ); Token type: close_bracket
-Node name: Statement; Node type: Statement; Childs: [if, (, Expression, ), Statement, else, Statement]
-Node name: if; Node type: L; Token name: if; Token type: if
-Node name: (; Node type: L; Token name: (; Token type: open_bracket
-Node name: Expression; Node type: Expression; Childs: [Expression, <, Expression]
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [id]
-Node name: id; Node type: L; Token name: a; Token type: id
-Node name: <; Node type: L; Token name: <; Token type: relop
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [id]
-Node name: id; Node type: L; Token name: b; Token type: id
-Node name: ); Node type: L; Token name: ); Token type: close_bracket
-Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
-Node name: id; Node type: L; Token name: a; Token type: id
-Node name: :=; Node type: L; Token name: :=; Token type: appropriation
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 7; Token type: number
-Node name: ;; Node type: L; Token name: ;; Token type: semicolon
-Node name: else; Node type: L; Token name: else; Token type: else
-Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
-Node name: id; Node type: L; Token name: b; Token type: id
-Node name: :=; Node type: L; Token name: :=; Token type: appropriation
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 7; Token type: number
-Node name: ;; Node type: L; Token name: ;; Token type: semicolon
-Node name: else; Node type: L; Token name: else; Token type: else
-Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
-Node name: id; Node type: L; Token name: b; Token type: id
-Node name: :=; Node type: L; Token name: :=; Token type: appropriation
-Node name: Expression; Node type: Expression; Childs: [P]
-Node name: P; Node type: P; Childs: [T]
-Node name: T; Node type: T; Childs: [L]
-Node name: L; Node type: L; Childs: [number]
-Node name: number; Node type: L; Token name: 7; Token type: number
-Node name: ;; Node type: L; Token name: ;; Token type: semicolon
-Node name: end; Node type: L; Token name: end; Token type: end
+Way: root; Node name: Program; Node type: Program; Childs: [Statement, begin, Statement, end]
+	Way: root->Program; Node name: Statement; Node type: Statement; Childs: [var, id, :=, Expression, ;]
+		Way: root->Program->Statement; Node name: var; Node type: L; Token name: var; Token type: var
+		Way: root->Program->Statement; Node name: id; Node type: L; Token name: b; Token type: id
+		Way: root->Program->Statement; Node name: :=; Node type: L; Token name: :=; Token type: appropriation
+		Way: root->Program->Statement; Node name: Expression; Node type: Expression; Childs: [P]
+			Way: root->Program->Statement->Expression; Node name: P; Node type: P; Childs: [P, +, P]
+				Way: root->Program->Statement->Expression->P; Node name: P; Node type: P; Childs: [T]
+					Way: root->Program->Statement->Expression->P->P; Node name: T; Node type: T; Childs: [L]
+						Way: root->Program->Statement->Expression->P->P->T; Node name: L; Node type: L; Childs: [number]
+							Way: root->Program->Statement->Expression->P->P->T->L; Node name: number; Node type: L; Token name: 1; Token type: number
+				Way: root->Program->Statement->Expression->P; Node name: +; Node type: L; Token name: +; Token type: oper
+				Way: root->Program->Statement->Expression->P; Node name: P; Node type: P; Childs: [P, -, P]
+					Way: root->Program->Statement->Expression->P->P; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Expression->P->P->P; Node name: T; Node type: T; Childs: [T, *, T]
+							Way: root->Program->Statement->Expression->P->P->P->T; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Expression->P->P->P->T->T; Node name: L; Node type: L; Childs: [number]
+									Way: root->Program->Statement->Expression->P->P->P->T->T->L; Node name: number; Node type: L; Token name: 3; Token type: number
+							Way: root->Program->Statement->Expression->P->P->P->T; Node name: *; Node type: L; Token name: *; Token type: oper
+							Way: root->Program->Statement->Expression->P->P->P->T; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Expression->P->P->P->T->T; Node name: L; Node type: L; Childs: [number]
+									Way: root->Program->Statement->Expression->P->P->P->T->T->L; Node name: number; Node type: L; Token name: 2; Token type: number
+					Way: root->Program->Statement->Expression->P->P; Node name: -; Node type: L; Token name: -; Token type: oper
+					Way: root->Program->Statement->Expression->P->P; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Expression->P->P->P; Node name: T; Node type: T; Childs: [L]
+							Way: root->Program->Statement->Expression->P->P->P->T; Node name: L; Node type: L; Childs: [number]
+								Way: root->Program->Statement->Expression->P->P->P->T->L; Node name: number; Node type: L; Token name: 6; Token type: number
+		Way: root->Program->Statement; Node name: ;; Node type: L; Token name: ;; Token type: semicolon
+	Way: root->Program; Node name: begin; Node type: L; Token name: begin; Token type: begin
+	Way: root->Program; Node name: Statement; Node type: Statement; Childs: [Statement, Statement]
+		Way: root->Program->Statement; Node name: Statement; Node type: Statement; Childs: [var, id, :=, Expression, ;]
+			Way: root->Program->Statement->Statement; Node name: var; Node type: L; Token name: var; Token type: var
+			Way: root->Program->Statement->Statement; Node name: id; Node type: L; Token name: a; Token type: id
+			Way: root->Program->Statement->Statement; Node name: :=; Node type: L; Token name: :=; Token type: appropriation
+			Way: root->Program->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [P]
+				Way: root->Program->Statement->Statement->Expression; Node name: P; Node type: P; Childs: [P, +, P]
+					Way: root->Program->Statement->Statement->Expression->P; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Statement->Expression->P->P; Node name: T; Node type: T; Childs: [L]
+							Way: root->Program->Statement->Statement->Expression->P->P->T; Node name: L; Node type: L; Childs: [number]
+								Way: root->Program->Statement->Statement->Expression->P->P->T->L; Node name: number; Node type: L; Token name: 1; Token type: number
+					Way: root->Program->Statement->Statement->Expression->P; Node name: +; Node type: L; Token name: +; Token type: oper
+					Way: root->Program->Statement->Statement->Expression->P; Node name: P; Node type: P; Childs: [P, -, P]
+						Way: root->Program->Statement->Statement->Expression->P->P; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Expression->P->P->P; Node name: T; Node type: T; Childs: [T, *, T]
+								Way: root->Program->Statement->Statement->Expression->P->P->P->T; Node name: T; Node type: T; Childs: [L]
+									Way: root->Program->Statement->Statement->Expression->P->P->P->T->T; Node name: L; Node type: L; Childs: [number]
+										Way: root->Program->Statement->Statement->Expression->P->P->P->T->T->L; Node name: number; Node type: L; Token name: 3; Token type: number
+								Way: root->Program->Statement->Statement->Expression->P->P->P->T; Node name: *; Node type: L; Token name: *; Token type: oper
+								Way: root->Program->Statement->Statement->Expression->P->P->P->T; Node name: T; Node type: T; Childs: [L]
+									Way: root->Program->Statement->Statement->Expression->P->P->P->T->T; Node name: L; Node type: L; Childs: [number]
+										Way: root->Program->Statement->Statement->Expression->P->P->P->T->T->L; Node name: number; Node type: L; Token name: 2; Token type: number
+						Way: root->Program->Statement->Statement->Expression->P->P; Node name: -; Node type: L; Token name: -; Token type: oper
+						Way: root->Program->Statement->Statement->Expression->P->P; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Expression->P->P->P; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Statement->Expression->P->P->P->T; Node name: L; Node type: L; Childs: [number]
+									Way: root->Program->Statement->Statement->Expression->P->P->P->T->L; Node name: number; Node type: L; Token name: 6; Token type: number
+			Way: root->Program->Statement->Statement; Node name: ;; Node type: L; Token name: ;; Token type: semicolon
+		Way: root->Program->Statement; Node name: Statement; Node type: Statement; Childs: [if, (, Expression, ), then, Statement, else, Statement]
+			Way: root->Program->Statement->Statement; Node name: if; Node type: L; Token name: if; Token type: if
+			Way: root->Program->Statement->Statement; Node name: (; Node type: L; Token name: (; Token type: open_bracket
+			Way: root->Program->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [Expression, <, Expression]
+				Way: root->Program->Statement->Statement->Expression; Node name: Expression; Node type: Expression; Childs: [P]
+					Way: root->Program->Statement->Statement->Expression->Expression; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Statement->Expression->Expression->P; Node name: T; Node type: T; Childs: [L]
+							Way: root->Program->Statement->Statement->Expression->Expression->P->T; Node name: L; Node type: L; Childs: [id]
+								Way: root->Program->Statement->Statement->Expression->Expression->P->T->L; Node name: id; Node type: L; Token name: a; Token type: id
+				Way: root->Program->Statement->Statement->Expression; Node name: <; Node type: L; Token name: <; Token type: relop
+				Way: root->Program->Statement->Statement->Expression; Node name: Expression; Node type: Expression; Childs: [P]
+					Way: root->Program->Statement->Statement->Expression->Expression; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Statement->Expression->Expression->P; Node name: T; Node type: T; Childs: [L]
+							Way: root->Program->Statement->Statement->Expression->Expression->P->T; Node name: L; Node type: L; Childs: [id]
+								Way: root->Program->Statement->Statement->Expression->Expression->P->T->L; Node name: id; Node type: L; Token name: b; Token type: id
+			Way: root->Program->Statement->Statement; Node name: ); Node type: L; Token name: ); Token type: close_bracket
+			Way: root->Program->Statement->Statement; Node name: then; Node type: L; Token name: then; Token type: then
+			Way: root->Program->Statement->Statement; Node name: Statement; Node type: Statement; Childs: [if, (, Expression, ), then, Statement, else, Statement]
+				Way: root->Program->Statement->Statement->Statement; Node name: if; Node type: L; Token name: if; Token type: if
+				Way: root->Program->Statement->Statement->Statement; Node name: (; Node type: L; Token name: (; Token type: open_bracket
+				Way: root->Program->Statement->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [Expression, <, Expression]
+					Way: root->Program->Statement->Statement->Statement->Expression; Node name: Expression; Node type: Expression; Childs: [P]
+						Way: root->Program->Statement->Statement->Statement->Expression->Expression; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Statement->Expression->Expression->P; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Statement->Statement->Expression->Expression->P->T; Node name: L; Node type: L; Childs: [id]
+									Way: root->Program->Statement->Statement->Statement->Expression->Expression->P->T->L; Node name: id; Node type: L; Token name: a; Token type: id
+					Way: root->Program->Statement->Statement->Statement->Expression; Node name: <; Node type: L; Token name: <; Token type: relop
+					Way: root->Program->Statement->Statement->Statement->Expression; Node name: Expression; Node type: Expression; Childs: [P]
+						Way: root->Program->Statement->Statement->Statement->Expression->Expression; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Statement->Expression->Expression->P; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Statement->Statement->Expression->Expression->P->T; Node name: L; Node type: L; Childs: [id]
+									Way: root->Program->Statement->Statement->Statement->Expression->Expression->P->T->L; Node name: id; Node type: L; Token name: b; Token type: id
+				Way: root->Program->Statement->Statement->Statement; Node name: ); Node type: L; Token name: ); Token type: close_bracket
+				Way: root->Program->Statement->Statement->Statement; Node name: then; Node type: L; Token name: then; Token type: then
+				Way: root->Program->Statement->Statement->Statement; Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: id; Node type: L; Token name: a; Token type: id
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: :=; Node type: L; Token name: :=; Token type: appropriation
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [P]
+						Way: root->Program->Statement->Statement->Statement->Statement->Expression; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Statement->Statement->Expression->P; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Statement->Statement->Statement->Expression->P->T; Node name: L; Node type: L; Childs: [number]
+									Way: root->Program->Statement->Statement->Statement->Statement->Expression->P->T->L; Node name: number; Node type: L; Token name: 7; Token type: number
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: ;; Node type: L; Token name: ;; Token type: semicolon
+				Way: root->Program->Statement->Statement->Statement; Node name: else; Node type: L; Token name: else; Token type: else
+				Way: root->Program->Statement->Statement->Statement; Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: id; Node type: L; Token name: b; Token type: id
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: :=; Node type: L; Token name: :=; Token type: appropriation
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [P]
+						Way: root->Program->Statement->Statement->Statement->Statement->Expression; Node name: P; Node type: P; Childs: [T]
+							Way: root->Program->Statement->Statement->Statement->Statement->Expression->P; Node name: T; Node type: T; Childs: [L]
+								Way: root->Program->Statement->Statement->Statement->Statement->Expression->P->T; Node name: L; Node type: L; Childs: [number]
+									Way: root->Program->Statement->Statement->Statement->Statement->Expression->P->T->L; Node name: number; Node type: L; Token name: 7; Token type: number
+					Way: root->Program->Statement->Statement->Statement->Statement; Node name: ;; Node type: L; Token name: ;; Token type: semicolon
+			Way: root->Program->Statement->Statement; Node name: else; Node type: L; Token name: else; Token type: else
+			Way: root->Program->Statement->Statement; Node name: Statement; Node type: Statement; Childs: [id, :=, Expression, ;]
+				Way: root->Program->Statement->Statement->Statement; Node name: id; Node type: L; Token name: b; Token type: id
+				Way: root->Program->Statement->Statement->Statement; Node name: :=; Node type: L; Token name: :=; Token type: appropriation
+				Way: root->Program->Statement->Statement->Statement; Node name: Expression; Node type: Expression; Childs: [P]
+					Way: root->Program->Statement->Statement->Statement->Expression; Node name: P; Node type: P; Childs: [T]
+						Way: root->Program->Statement->Statement->Statement->Expression->P; Node name: T; Node type: T; Childs: [L]
+							Way: root->Program->Statement->Statement->Statement->Expression->P->T; Node name: L; Node type: L; Childs: [number]
+								Way: root->Program->Statement->Statement->Statement->Expression->P->T->L; Node name: number; Node type: L; Token name: 7; Token type: number
+				Way: root->Program->Statement->Statement->Statement; Node name: ;; Node type: L; Token name: ;; Token type: semicolon
+	Way: root->Program; Node name: end; Node type: L; Token name: end; Token type: end

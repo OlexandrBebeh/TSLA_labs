@@ -27,12 +27,14 @@ Name: a | Token type: id | Token value: 5(a) | Row: 5 | Pos: 5
 Name: < | Token type: relop | Row: 5 | Pos: 6 
 Name: b | Token type: id | Token value: 0(b) | Row: 5 | Pos: 7 
 Name: ) | Token type: close_bracket | Row: 5 | Pos: 8 
+Name: then | Token type: then | Row: 5 | Pos: 10 
 Name: if | Token type: if | Row: 6 | Pos: 2 
 Name: ( | Token type: open_bracket | Row: 6 | Pos: 5 
 Name: a | Token type: id | Token value: 5(a) | Row: 6 | Pos: 6 
 Name: < | Token type: relop | Row: 6 | Pos: 7 
 Name: b | Token type: id | Token value: 0(b) | Row: 6 | Pos: 8 
 Name: ) | Token type: close_bracket | Row: 6 | Pos: 9 
+Name: then | Token type: then | Row: 6 | Pos: 11 
 Name: a | Token type: id | Token value: 5(a) | Row: 7 | Pos: 2 
 Name: := | Token type: appropriation | Row: 7 | Pos: 4 
 Name: 7 | Token type: number | Token value: 6(7) | Row: 7 | Pos: 7 

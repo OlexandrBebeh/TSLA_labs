@@ -66,7 +66,7 @@ class SyntaxisAnalisys {
 	std::map<std::vector<std::string>, NodeT> rules;
 	std::map<std::vector<std::string>, std::function<Node(std::vector<Node>)>> reduction_f;
 	std::vector<std::string> nonterm;
-	int maxRuleSize = 7;
+	int maxRuleSize = 8;
 public:
 	SyntaxisAnalisys() {
 		nonterm.push_back("Program");
@@ -100,8 +100,8 @@ public:
 		rules.emplace(std::vector<std::string>{"id", ":", "integer", ";"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"id", ":", "integer", ":=", "Expression", ";"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"var", "id", ":", "integer", ";"}, NodeT::Statement);
-		rules.emplace(std::vector<std::string>{"if","(","Expression",")","Statement","else", "Statement"}, NodeT::Statement);
-		rules.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "Statement"}, NodeT::Statement);
+		rules.emplace(std::vector<std::string>{"if","(","Expression",")","then","Statement","else", "Statement"}, NodeT::Statement);
+		rules.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "then", "Statement"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"Statement", "Statement"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"begin", "Statement", "end"}, NodeT::Program);
 		rules.emplace(std::vector<std::string>{"Statement","begin", "Statement","end"}, NodeT::Program);
@@ -130,8 +130,8 @@ public:
 		reduction_f.emplace(std::vector<std::string>{"var","id", ":=", "Expression", ";"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"var","id", ":", "integer", ":=", "Expression", ";"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"var","id", ":", "integer", ";"}, temp(NodeT::Statement));
-		reduction_f.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "Statement", "else", "Statement"}, temp(NodeT::Statement));
-		reduction_f.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "Statement"}, temp(NodeT::Statement));
+		reduction_f.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "then", "Statement", "else", "Statement"}, temp(NodeT::Statement));
+		reduction_f.emplace(std::vector<std::string>{"if", "(", "Expression", ")", "then", "Statement"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"Statement", "Statement"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"begin", "Statement", "end"}, temp(NodeT::Program));
 		reduction_f.emplace(std::vector<std::string>{"Statement", "begin", "Statement", "end"}, temp(NodeT::Program));
@@ -187,8 +187,10 @@ public:
 		return true;
 	}
 	bool deep_reduce(std::vector<Node>& stack) {
-		for (int i = maxRuleSize; i > 0; i--) {
-			for (int j = 0; j < stack.size() - 1 - i; j++) {
+		int max = std::min(maxRuleSize,(int) stack.size());
+		for (int i = max; i > 0; i--) {
+
+			for (int j = 0; j < (stack.size() - i) + 1; j++) {
 				int maxReductSize = -1;
 				auto itbegin = stack.end() - i - j;
 				auto itend = stack.end() - j;
@@ -275,11 +277,14 @@ public:
 		}
 		if (node.name == ";") {
 			final_reduct(stack);
+		}		
+		if (node.name == "begin") {
+			while (deep_reduce(stack));
 		}
 	}
-	void detour(std::ofstream& file, Node node) {
-
-		file << "Node name: " << node.name;
+	void detour(std::ofstream& file, Node node, std::string way) {
+		file << way;
+		file << "; Node name: " << node.name;
 		file << "; Node type: " << NodeTWork::getNodeT(node.type);
 		if (node.type == NodeT::L && node.childs.size() == 0) {
 			file << "; Token name: " << node.t.name;
@@ -296,13 +301,13 @@ public:
 			}
 			file << "]\n";
 			for (Node child : node.childs) {
-				detour(file, child);
+				detour(file, child, "\t" + way + "->" + node.name);
 			}
 		}
 	}
 	void writeTree(Node tree) {
 		std::ofstream file("tree.txt");
-		detour(file, tree);
+		detour(file, tree, "Way: root");
 		file.close();
 	}
 	void startAnalisys() {
@@ -316,7 +321,7 @@ public:
 
 
 		while (true) {
-			final_reduct(stack);
+			deep_reduce(stack);
 			if (stack.size() == 1 && stack[0].type == NodeT::Program) break;
 		}
 
