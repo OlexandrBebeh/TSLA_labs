@@ -5,6 +5,6 @@ var
 begin
    yauwgd := test - abc;
    if(yauwgd < test) then
-	test := yauwgd
-   else test := 0
+	test := yauwgd;
+   else test := 0;
 end

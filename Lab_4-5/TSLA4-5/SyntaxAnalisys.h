@@ -93,7 +93,7 @@ public:
 		rules.emplace(std::vector<std::string>{"Expression", "==", "Expression"}, NodeT::Expression);
 		rules.emplace(std::vector<std::string>{"Expression", "!=", "Expression"}, NodeT::Expression);
 		rules.emplace(std::vector<std::string>{"Expression", "<", "Expression"}, NodeT::Expression);
-		rules.emplace(std::vector<std::string>{"Expression", "==", "Expression"}, NodeT::Expression);
+		rules.emplace(std::vector<std::string>{"Expression", "<=", "Expression"}, NodeT::Expression);
 		rules.emplace(std::vector<std::string>{"var", "id", ":=", "Expression",";"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"id", ":=", "Expression", ";"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"var", "id", ":","integer",":=", "Expression", ";"}, NodeT::Statement);
@@ -105,6 +105,7 @@ public:
 		rules.emplace(std::vector<std::string>{"Statement", "Statement"}, NodeT::Statement);
 		rules.emplace(std::vector<std::string>{"begin", "Statement", "end"}, NodeT::Program);
 		rules.emplace(std::vector<std::string>{"Statement","begin", "Statement","end"}, NodeT::Program);
+		rules.emplace(std::vector<std::string>{"Statement", "Program"}, NodeT::Program);
 		auto temp = [](NodeT type) {
 			return [=](std::vector<Node> c) mutable {
 				return Node(NodeTWork::getNodeT(type), Token(), type, c);
@@ -123,7 +124,7 @@ public:
 		reduction_f.emplace(std::vector<std::string>{"Expression", "==", "Expression"}, temp(NodeT::Expression));
 		reduction_f.emplace(std::vector<std::string>{"Expression", "!=", "Expression"}, temp(NodeT::Expression));
 		reduction_f.emplace(std::vector<std::string>{"Expression", "<", "Expression"}, temp(NodeT::Expression));
-		reduction_f.emplace(std::vector<std::string>{"Expression", "==", "Expression"}, temp(NodeT::Expression));
+		reduction_f.emplace(std::vector<std::string>{"Expression", "<=", "Expression"}, temp(NodeT::Expression));
 		reduction_f.emplace(std::vector<std::string>{"id", ":=", "Expression", ";"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"id", ":", "integer", ":=", "Expression", ";"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"id", ":", "integer", ";"}, temp(NodeT::Statement));
@@ -135,6 +136,7 @@ public:
 		reduction_f.emplace(std::vector<std::string>{"Statement", "Statement"}, temp(NodeT::Statement));
 		reduction_f.emplace(std::vector<std::string>{"begin", "Statement", "end"}, temp(NodeT::Program));
 		reduction_f.emplace(std::vector<std::string>{"Statement", "begin", "Statement", "end"}, temp(NodeT::Program));
+		reduction_f.emplace(std::vector<std::string>{"Statement", "Program"}, temp(NodeT::Program));
 
 	};
 
@@ -198,12 +200,16 @@ public:
 				if (containRule(getNames(temp))) {
 					std::vector<Node> childs;
 					std::vector<std::string> temp;
+					std::cout << "Reduce: ";
 					for (int k = i; k > 0; k--) {
 						childs.insert(childs.begin(), stack[stack.size() - i - j + k -1 ]);
 						temp.insert(temp.begin(), stack[stack.size() - i - j + k - 1].name);
+						std::cout << temp[0] << ", ";
 					}
 					stack.erase(itbegin, itend);
-					stack.insert(stack.end() - j,reduction_f[temp](childs));
+					Node t = reduction_f[temp](childs);
+					stack.insert(stack.end() - j, t);
+					std::cout << " -> " << t.name << std::endl;
 					return true;
 				}
 			}
@@ -214,31 +220,48 @@ public:
 	void reduct(std::vector<Node>& stack,int size) {
 		std::vector<Node> childs;
 		std::vector<std::string> temp;
+		std::cout << "Reduce: ";
 		for(int i = 0; i < size; i++){
 			childs.insert(childs.begin(), stack[stack.size() - 1]);
 			temp.insert(temp.begin(), stack[stack.size() - 1].name);
 			stack.pop_back();
+			std::cout << temp[0] << " ";
 		}
+
 		stack.push_back(reduction_f[temp](childs));
+		std::cout << "-> " << stack[stack.size() - 1].name << std::endl;
 	}
 	void throwExeption(Node node) {
+		std::cout << "Error: " << node.name << std::endl;
 		std::cout << "Syntaxis error at row " << node.t.row << " symb " << node.t.symb;
 		exit(1);
+	}
+	void showStack(std::vector<Node> stack) {
+		std::cout << "Stack: ";
+		for (int i = 0; i < stack.size(); i++) {
+			if (i == stack.size() - 1) {
+				std::cout << stack[i].name << std::endl;
+			}
+			else std::cout << stack[i].name << ", ";
+		}
 	}
 	bool addToStack(std::vector<Node>& stack, Node node) {
 		int max = std::min(maxRuleSize, (int)stack.size());
 		std::vector<Node> temp1;
 		std::vector<Node> temp2{ node };
 		int maxReductSize = -1;
+		showStack(stack);
 		for (int i = stack.size() - 1; i >= (int)stack.size() - max; i--) {
 			temp1.insert(temp1.begin(), stack[i]);
 			temp2.insert(temp2.begin(), stack[i]);
 			if (startsWith(temp2)) {
 				stack.push_back(node);
+				std::cout << "Shift: " << node.name << std::endl;
 				return false;
 			}
 			if (startsWith(temp1) && isNonTerm(node.name)) {
 				stack.push_back(node);
+				std::cout << "Shift: " << node.name << std::endl;
 				return false;
 			}
 			if (containRule(getNames(temp1))) {
@@ -269,6 +292,7 @@ public:
 	}
 	void pushNode(std::vector<Node>& stack, Node node) {
 		if (stack.size() == 0) {
+			std::cout << "Shift: " << node.name << std::endl;
 			stack.push_back(node);
 		} else {
 			do {
@@ -278,9 +302,6 @@ public:
 		if (node.name == ";") {
 			final_reduct(stack);
 		}		
-		if (node.name == "begin") {
-			while (deep_reduce(stack));
-		}
 	}
 	void detour(std::ofstream& file, Node node, std::string way) {
 		file << way;
@@ -321,10 +342,11 @@ public:
 
 
 		while (true) {
-			deep_reduce(stack);
 			if (stack.size() == 1 && stack[0].type == NodeT::Program) break;
+			deep_reduce(stack);
+			
 		}
-
+		std::cout << "Accept: " << stack[0].name << std::endl;
 		writeTree(stack[0]);
 	}
 };
